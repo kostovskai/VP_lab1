@@ -19,12 +19,18 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ChefDetailsServlet", urlPatterns = "/chefDetails")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ChefDetailsServlet extends HttpServlet {
 
     private final SpringTemplateEngine springTemplateEngine;
     private final DishService dishService;
     private final ChefService chefService;
+
+    public ChefDetailsServlet(SpringTemplateEngine springTemplateEngine, DishService dishService, ChefService chefService) {
+        this.springTemplateEngine = springTemplateEngine;
+        this.dishService = dishService;
+        this.chefService = chefService;
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

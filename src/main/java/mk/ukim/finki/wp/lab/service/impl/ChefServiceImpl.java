@@ -12,11 +12,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ChefServiceImpl implements ChefService {
 
     private final ChefRepository chefRepository;
     private final DishRepository dishRepository;
+
+    public ChefServiceImpl(ChefRepository chefRepository, DishRepository dishRepository) {
+        this.chefRepository = chefRepository;
+        this.dishRepository = dishRepository;
+    }
 
     @Override
     public List<Chef> listChefs() {

@@ -9,10 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class DishServiceImpl implements DishService {
 
     private final DishRepository dishRepository;
+
+    public DishServiceImpl(DishRepository dishRepository) {
+        this.dishRepository = dishRepository;
+    }
 
     @Override
     public List<Dish> listDishes() {

@@ -15,11 +15,16 @@ import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 import java.io.IOException;
 
 @WebServlet(name = "ChefListServlet", urlPatterns = "/listChefs")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ChefListServlet extends HttpServlet {
 
     private final SpringTemplateEngine springTemplateEngine;
     private final ChefService chefService;
+
+    public ChefListServlet(SpringTemplateEngine springTemplateEngine, ChefService chefService) {
+        this.springTemplateEngine = springTemplateEngine;
+        this.chefService = chefService;
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
